@@ -1,0 +1,64 @@
+{
+    "tables": {
+        "1": {
+            "occupied": false,
+            "order_id": null
+        },
+        "2": {
+            "occupied": false,
+            "order_id": null
+        },
+        "3": {
+            "occupied": false,
+            "order_id": null
+        },
+        "4": {
+            "occupied": false,
+            "order_id": null
+        },
+        "5": {
+            "occupied": false,
+            "order_id": null
+        },
+        "6": {
+            "occupied": false,
+            "order_id": null
+        },
+        "7": {
+            "occupied": false,
+            "order_id": null
+        },
+        "8": {
+            "occupied": false,
+            "order_id": null
+        }
+    },
+    "orders": {
+        "1": {
+            "table_no": "3",
+            "customer_name": "umar",
+            "items": {
+                "Tea": 3,
+                "Pasta": 4
+            },
+            "placed_at": "2026-07-02 00:25:42",
+            "status": "billed"
+        }
+    },
+    "sales_history": [
+        {
+            "order_id": "1",
+            "table_no": "3",
+            "customer_name": "umar",
+            "items": {
+                "Tea": 3,
+                "Pasta": 4
+            },
+            "subtotal": 540,
+            "gst": 27.0,
+            "total": 567.0,
+            "billed_at": "2026-07-02 00:26:22"
+        }
+    ],
+    "next_order_id": 2
+}

@@ -1,0 +1,21 @@
+{
+    "1234567890": {
+        "name": "Demo User",
+        "pin": "1234",
+        "balance": 5000.0,
+        "transactions": []
+    },
+    "9668420527": {
+        "name": "khalid",
+        "pin": "3456",
+        "balance": 2000.0,
+        "transactions": [
+            {
+                "type": "Account Opened",
+                "amount": 2000.0,
+                "balance_after": 2000.0,
+                "timestamp": "2026-07-01 21:53:44"
+            }
+        ]
+    }
+}

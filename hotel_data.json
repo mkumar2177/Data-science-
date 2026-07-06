@@ -1,0 +1,97 @@
+{
+    "rooms": {
+        "101": {
+            "type": "Single",
+            "rate": 1500,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "102": {
+            "type": "Single",
+            "rate": 1500,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "103": {
+            "type": "Single",
+            "rate": 1500,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "104": {
+            "type": "Single",
+            "rate": 1500,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "105": {
+            "type": "Single",
+            "rate": 1500,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "106": {
+            "type": "Deluxe",
+            "rate": 2800,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "107": {
+            "type": "Deluxe",
+            "rate": 2800,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "108": {
+            "type": "Deluxe",
+            "rate": 2800,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "109": {
+            "type": "Deluxe",
+            "rate": 2800,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "110": {
+            "type": "Deluxe",
+            "rate": 2800,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "111": {
+            "type": "Suite",
+            "rate": 5000,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "112": {
+            "type": "Suite",
+            "rate": 5000,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "113": {
+            "type": "Suite",
+            "rate": 5000,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "114": {
+            "type": "Suite",
+            "rate": 5000,
+            "is_occupied": false,
+            "guest_id": null
+        },
+        "115": {
+            "type": "Suite",
+            "rate": 5000,
+            "is_occupied": false,
+            "guest_id": null
+        }
+    },
+    "guests": {},
+    "bookings": [],
+    "next_guest_id": 1
+}
