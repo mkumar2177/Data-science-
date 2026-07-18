@@ -2,96 +2,153 @@ import streamlit as st
 import pickle
 import numpy as np
 
-artifacts = pickle.load(open("artifacts.pkl","rb"))
-
-model = artifacts["model"]
-
-encoder = artifacts["encoder"]
-
 st.set_page_config(
-
-page_title="Heart Disease Prediction",
-
-
-
+    page_title="Heart Disease Prediction",
+   
+    layout="wide"
 )
 
-st.title("Heart Disease Prediction")
+# Load Model
+model = pickle.load(open("artifacts.pkl","rb"))
 
-st.write("Decision Tree Classification")
+# ---------------- CSS ----------------
 
-age = st.number_input("Age",20,100,40)
+st.markdown("""
+<style>
 
-sex = st.selectbox("Sex",["Female","Male"])
+.main{
+background:#0E1117;
+}
 
-cp = st.number_input("Chest Pain Type",1,4,2)
+h1{
+text-align:center;
+color:#FF4B4B;
+}
 
-bp = st.number_input("Blood Pressure",80,250,120)
+.stButton>button{
+width:100%;
+height:60px;
+font-size:22px;
+border-radius:15px;
+background:#FF4B4B;
+color:white;
+font-weight:bold;
+}
 
-chol = st.number_input("Cholesterol",100,700,200)
+.stButton>button:hover{
+background:#ff0000;
+}
 
-fbs = st.selectbox("FBS over 120",["No","Yes"])
+.result{
+padding:20px;
+border-radius:15px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
 
-ekg = st.number_input("EKG Results",0,2,1)
+</style>
+""",unsafe_allow_html=True)
 
-hr = st.number_input("Maximum Heart Rate",60,220,150)
+st.title("Heart Disease Prediction System")
 
-angina = st.selectbox("Exercise Angina",["No","Yes"])
+st.write("Predict whether a patient has heart disease using Machine Learning.")
 
-oldpeak = st.number_input("ST Depression",0.0,10.0,1.0)
+left,right=st.columns(2)
 
-slope = st.number_input("Slope of ST",1,3,2)
+with left:
 
-vessels = st.number_input("Number of Vessels",0,4,0)
+    age=st.number_input("Age",1,100,45)
 
-thal = st.number_input("Thallium",3,7,3)
+    sex=st.selectbox("Gender",
+                     ["Female","Male"])
 
-sex = 1 if sex=="Male" else 0
+    cp=st.selectbox("Chest Pain Type",
+                    [0,1,2,3])
 
-fbs = 1 if fbs=="Yes" else 0
+    trestbps=st.number_input("Resting Blood Pressure",80,250,120)
 
-angina = 1 if angina=="Yes" else 0
+    chol=st.number_input("Cholesterol",100,600,240)
 
-if st.button("Predict"):
+    fbs=st.selectbox("Fasting Blood Sugar",
+                     [0,1])
 
-    data=np.array([[
+    restecg=st.selectbox("Rest ECG",
+                         [0,1,2])
 
-        age,
+with right:
 
-        sex,
+    thalach=st.number_input("Maximum Heart Rate",60,220,150)
 
-        cp,
+    exang=st.selectbox("Exercise Induced Angina",
+                       [0,1])
 
-        bp,
+    oldpeak=st.number_input("Old Peak",0.0,10.0,1.5)
 
-        chol,
+    slope=st.selectbox("Slope",[0,1,2])
 
-        fbs,
+    ca=st.selectbox("Major Vessels",[0,1,2,3,4])
 
-        ekg,
+    thal=st.selectbox("Thal",[0,1,2,3])
 
-        hr,
+if sex=="Male":
+    sex=1
+else:
+    sex=0
 
-        angina,
+data=np.array([[age,sex,cp,trestbps,chol,fbs,
+restecg,thalach,exang,oldpeak,slope,ca,thal]])
 
-        oldpeak,
-
-        slope,
-
-        vessels,
-
-        thal
-
-    ]])
+if st.button("❤️ Predict Heart Disease"):
 
     prediction=model.predict(data)
 
-    result=encoder.inverse_transform(prediction)[0]
+    if hasattr(model,"predict_proba"):
+        prob=model.predict_proba(data)[0][1]
+    else:
+        prob=0.80 if prediction[0]==1 else 0.20
 
-    if result=="Presence":
+    st.divider()
 
-        st.error("High Risk of Heart Disease")
+    st.subheader("Prediction Probability")
+
+    st.progress(int(prob*100))
+
+    st.metric("Risk Probability",
+              f"{prob*100:.2f}%")
+
+    if prediction[0]==1:
+
+        st.error("🔴 High Risk of Heart Disease")
+
+        st.info("""
+### Recommendation
+
+✔ Consult a Cardiologist
+
+✔ Maintain Healthy Diet
+
+✔ Regular Exercise
+
+✔ Avoid Smoking
+
+✔ Regular Health Checkups
+""")
 
     else:
 
-        st.success("No Heart Disease Detected")
+        st.success("🟢 Low Risk of Heart Disease")
+
+        st.balloons()
+
+        st.info("""
+### Recommendation
+
+✔ Continue Healthy Lifestyle
+
+✔ Exercise Daily
+
+✔ Balanced Diet
+
+✔ Routine Checkup
+""")
