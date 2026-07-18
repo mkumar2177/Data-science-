@@ -6,11 +6,11 @@ model = pickle.load(open("car_price_model.pkl","rb"))
 
 st.set_page_config(
     page_title="Car Price Prediction",
-    
+    page_icon="🚗",
     layout="centered"
 )
 
-st.title("Car Price Prediction")
+st.title("🚗 Car Price Prediction")
 st.write("Predict the selling price of a used car using Random Forest Regression.")
 
 year = st.number_input("Manufacturing Year",1990,2025,2018)
