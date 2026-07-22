@@ -80,9 +80,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ==========================================
-# Custom CSS
-# ==========================================
+
 
 st.markdown("""
 
@@ -268,9 +266,7 @@ st.sidebar.markdown("---")
 
 st.sidebar.info("Machine Learning Project")
 
-# ==========================================
-# Main Title
-# ==========================================
+
 
 st.markdown(
 """
@@ -290,9 +286,7 @@ unsafe_allow_html=True
 
 st.write("")
 
-# ==========================================
-# Dashboard Cards
-# ==========================================
+
 
 col1,col2,col3,col4=st.columns(4)
 

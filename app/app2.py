@@ -17,7 +17,6 @@ from sklearn.metrics import (
 # ---------------------------------------------------------------
 st.set_page_config(
     page_title="Logistic Regression Studio",
-    page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"
 )

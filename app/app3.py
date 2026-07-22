@@ -6,7 +6,7 @@ model = pickle.load(open("decision_tree_model.pkl",'rb'))
 
 st.set_page_config(
     page_title="Salary Prediction",
-    page_icon="💼",
+    
     layout="centered"
 )
 
